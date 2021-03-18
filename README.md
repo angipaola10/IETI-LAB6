@@ -8,6 +8,9 @@
 
 * **Image Docker Hub:** 
   https://hub.docker.com/repository/docker/angipaola10/task-planner-backend
+  
+* **Backend Repository:**
+  https://github.com/angipaola10/IETILAB6-Backend
 
 ## Endpoints
 * Create user: https://task-planner-api.herokuapp.com/users
