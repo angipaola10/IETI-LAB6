@@ -1,24 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import { Typography } from '@material-ui/core';
+import React, { useState } from 'react';
+import UserList from './components/UserList';
 
 function App() {
+
+  const [usersList, setUsersList] = useState([]);
+
+
+  const componentDidMount = () => {
+    fetch('https://task-planner-api.herokuapp.com/users')
+      .then( response => response.json())
+      .then( data => {
+        setUsersList(data);
+      })
+    return usersList;
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    <Typography variant="h4" gutterBottom> Task Planner - Users </Typography>
+    <UserList users={componentDidMount()} />
+    </>
   );
 }
 
